@@ -29,6 +29,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
+import type { CSSProperties } from 'vue'
 
 const props = defineProps<{
   bucketSlug: string
@@ -37,8 +38,8 @@ const props = defineProps<{
 const isVisible = ref(false)
 const isHovered = ref(false)
 
-const badgeStyles = computed(() => ({
-  position: 'fixed',
+const badgeStyles = computed<CSSProperties>(() => ({
+  position: 'fixed' as const,
   backgroundColor: isHovered.value ? '#f9fafb' : 'white',
   border: '1px solid #e5e7eb',
   borderRadius: '8px',
